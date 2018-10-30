@@ -138,7 +138,6 @@ public class NewJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         jSlider1.setMinimum(0);
         jSlider1.setMaximum(100);
-        jSlider1.setValue(0);
         jSlider1.setMajorTickSpacing(10);
         jSlider1.setMinorTickSpacing(5);
          
@@ -148,8 +147,7 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jSlider1AncestorAdded
 
     private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
-        // TODO add your handling code here:
-        if(jComboBox1)
+
     }//GEN-LAST:event_jSlider1StateChanged
 
     /**
