@@ -5,6 +5,9 @@
  */
 package lendle.courses.wp.quiz_comboboxandslider;
 
+import javax.swing.JComboBox;
+import javax.swing.JSlider;
+
 /**
  *
  * @author lendle
@@ -35,7 +38,27 @@ public class NewJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        jSlider1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jSlider1AncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jSlider1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSlider1StateChanged(evt);
+            }
+        });
 
         jLabel1.setText("combobox 裡面放0，10，20，30......100");
 
@@ -76,6 +99,59 @@ public class NewJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+       // TODO add your handling code here:
+        int i;
+        for(i=0 ; i<=100 ; i+=10){
+            jComboBox1.addItem(""+i);
+        }
+        String item = (String) jComboBox1.getSelectedItem();
+        
+        if(item.equals("0")){
+            jSlider1.setValue(0);
+        }else if(item.equals("10")){
+            jSlider1.setValue(10);
+        }else if(item.equals("20")){
+            jSlider1.setValue(20);
+        }else if(item.equals("30")){
+            jSlider1.setValue(30);
+        }else if(item.equals("40")){
+            jSlider1.setValue(40);
+        }else if(item.equals("50")){
+            jSlider1.setValue(50);
+        }else if(item.equals("60")){
+            jSlider1.setValue(60);
+        }else if(item.equals("70")){
+            jSlider1.setValue(70);
+        }else if(item.equals("80")){
+            jSlider1.setValue(80);
+        }else if(item.equals("90")){
+            jSlider1.setValue(90);
+        }else
+            jSlider1.setValue(100);
+    
+        
+        
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jSlider1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jSlider1AncestorAdded
+        // TODO add your handling code here:
+        jSlider1.setMinimum(0);
+        jSlider1.setMaximum(100);
+        jSlider1.setValue(0);
+        jSlider1.setMajorTickSpacing(10);
+        jSlider1.setMinorTickSpacing(5);
+         
+        jSlider1.setPaintTicks(true);
+        jSlider1.setPaintTrack(true);
+        jSlider1.setPaintLabels(true);
+    }//GEN-LAST:event_jSlider1AncestorAdded
+
+    private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
+        // TODO add your handling code here:
+        if(jComboBox1)
+    }//GEN-LAST:event_jSlider1StateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -102,7 +178,6 @@ public class NewJFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -111,6 +186,8 @@ public class NewJFrame extends javax.swing.JFrame {
         });
     }
 
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
